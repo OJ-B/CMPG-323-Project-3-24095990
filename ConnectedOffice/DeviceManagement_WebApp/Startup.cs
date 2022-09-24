@@ -39,6 +39,7 @@ namespace DeviceManagement_WebApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddTransient<IDeviceRepository, DeviceRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
