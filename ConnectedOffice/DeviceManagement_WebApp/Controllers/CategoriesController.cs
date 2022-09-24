@@ -13,12 +13,10 @@ namespace DeviceManagement_WebApp.Controllers
 {
     public class CategoriesController : Controller
     {
-        private readonly ConnectedOfficeContext _context;
         private readonly ICategoryRepository _categoryRepository;
 
-        public CategoriesController(ConnectedOfficeContext context, ICategoryRepository categoryRepository)
+        public CategoriesController(ICategoryRepository categoryRepository)
         {
-            _context = context;
             _categoryRepository = categoryRepository;
         }
 
@@ -36,8 +34,8 @@ namespace DeviceManagement_WebApp.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Category
-                .FirstOrDefaultAsync(m => m.CategoryId == id);
+            var category = await _categoryRepository.GetById(id);
+
             if (category == null)
             {
                 return NotFound();
@@ -60,8 +58,9 @@ namespace DeviceManagement_WebApp.Controllers
         public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,CategoryDescription,DateCreated")] Category category)
         {
             category.CategoryId = Guid.NewGuid();
-            _context.Add(category);
-            await _context.SaveChangesAsync();
+
+            await _categoryRepository.Add(category);
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -73,7 +72,7 @@ namespace DeviceManagement_WebApp.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Category.FindAsync(id);
+            var category = await _categoryRepository.GetById(id);
             if (category == null)
             {
                 return NotFound();
@@ -94,12 +93,11 @@ namespace DeviceManagement_WebApp.Controllers
             }
             try
             {
-                _context.Update(category);
-                await _context.SaveChangesAsync();
+                await _categoryRepository.Update(category);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(category.CategoryId))
+                if (!CategoryExists(category.CategoryId).Result)
                 {
                     return NotFound();
                 }
@@ -119,8 +117,7 @@ namespace DeviceManagement_WebApp.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Category
-                .FirstOrDefaultAsync(m => m.CategoryId == id);
+            var category = await _categoryRepository.Find(m => m.CategoryId == id);
             if (category == null)
             {
                 return NotFound();
@@ -134,15 +131,15 @@ namespace DeviceManagement_WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var category = await _context.Category.FindAsync(id);
-            _context.Category.Remove(category);
-            await _context.SaveChangesAsync();
+            var category = await _categoryRepository.GetById(id);
+            await _categoryRepository.Remove(category);
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoryExists(Guid id)
+        private async Task<bool> CategoryExists(Guid id)
         {
-            return _context.Category.Any(e => e.CategoryId == id);
+            return (await _categoryRepository.Find(m => m.CategoryId == id)).Any();
         }
     }
 }

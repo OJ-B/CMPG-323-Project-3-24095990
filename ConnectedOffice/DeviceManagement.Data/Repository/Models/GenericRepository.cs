@@ -56,5 +56,11 @@ namespace DeviceManagement.Data.Repository.Models
             await Task.Run(() => _context.Set<T>().RemoveRange(entities));
             await _context.SaveChangesAsync();
         }
+
+        public async Task Update(T entity)
+        {
+            _context.Update(entity);
+            await _context.SaveChangesAsync();
+        }
     }
 }

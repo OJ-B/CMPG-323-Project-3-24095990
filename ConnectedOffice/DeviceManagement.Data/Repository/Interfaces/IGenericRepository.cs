@@ -15,5 +15,6 @@ namespace DeviceManagement.Data.Repository.Interfaces
         Task AddRange(IEnumerable<T> entities);
         Task Remove(T entity);
         Task RemoveRange(IEnumerable<T> entities);
+        Task Update(T entity);
     }
 }
