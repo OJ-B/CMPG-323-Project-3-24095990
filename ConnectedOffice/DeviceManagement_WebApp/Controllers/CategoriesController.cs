@@ -117,7 +117,7 @@ namespace DeviceManagement_WebApp.Controllers
                 return NotFound();
             }
 
-            var category = await _categoryRepository.Find(m => m.CategoryId == id);
+            var category = await _categoryRepository.GetById(id);
             if (category == null)
             {
                 return NotFound();
