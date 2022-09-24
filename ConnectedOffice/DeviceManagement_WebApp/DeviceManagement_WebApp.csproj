@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DeviceManagement.Database\DeviceManagement.Database.csproj" />
+    <ProjectReference Include="..\DeviceManagement.Data\DeviceManagement.Data.csproj" />
   </ItemGroup>
 
 </Project>

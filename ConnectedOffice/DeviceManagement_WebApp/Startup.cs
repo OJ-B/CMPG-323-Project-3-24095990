@@ -1,3 +1,5 @@
+using DeviceManagement.Data.Repository.Interfaces;
+using DeviceManagement.Data.Repository.Models;
 using DeviceManagement.Database.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +37,9 @@ namespace DeviceManagement_WebApp
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddTransient<IDeviceRepository, DeviceRepository>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
