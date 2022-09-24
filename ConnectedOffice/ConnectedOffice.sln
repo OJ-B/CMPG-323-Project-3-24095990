@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeviceManagement_WebApp", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagement.Database", "DeviceManagement.Database\DeviceManagement.Database.csproj", "{5C693D6F-76D8-4210-80A2-90C9F6BF5850}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManagement.Data", "DeviceManagement.Data\DeviceManagement.Data.csproj", "{8AA06775-5F73-4C59-A680-FE71B4190C4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5C693D6F-76D8-4210-80A2-90C9F6BF5850}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C693D6F-76D8-4210-80A2-90C9F6BF5850}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C693D6F-76D8-4210-80A2-90C9F6BF5850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA06775-5F73-4C59-A680-FE71B4190C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA06775-5F73-4C59-A680-FE71B4190C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA06775-5F73-4C59-A680-FE71B4190C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA06775-5F73-4C59-A680-FE71B4190C4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
