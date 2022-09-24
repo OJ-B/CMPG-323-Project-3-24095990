@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using DeviceManagement_WebApp.Data;
-using DeviceManagement_WebApp.Models;
+using DeviceManagement.Database.Data;
+using DeviceManagement.Database.Models;
 
 namespace DeviceManagement_WebApp.Controllers
 {

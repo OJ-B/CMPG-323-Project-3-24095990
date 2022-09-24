@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DeviceManagement_WebApp.Data
+namespace DeviceManagement.Database.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

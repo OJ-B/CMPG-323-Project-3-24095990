@@ -1,4 +1,4 @@
-﻿using DeviceManagement_WebApp.Models;
+﻿using DeviceManagement.Database.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
