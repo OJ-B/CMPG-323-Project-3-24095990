@@ -6,7 +6,7 @@ using System.ComponentModel;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace DeviceManagement_WebApp.Models
+namespace DeviceManagement.Database.Models
 {
     public partial class Zone
     {

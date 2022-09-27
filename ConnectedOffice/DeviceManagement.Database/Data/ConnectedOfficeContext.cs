@@ -1,5 +1,5 @@
 ﻿using System;
-using DeviceManagement_WebApp.Models;
+using DeviceManagement.Database.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace DeviceManagement_WebApp.Data
+namespace DeviceManagement.Database.Data
 {
     public partial class ConnectedOfficeContext : DbContext
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace DeviceManagement_WebApp.Models
+namespace DeviceManagement.Database.Models
 {
     public class ErrorViewModel
     {
