@@ -27,7 +27,6 @@ namespace DeviceManagement.Data.Repository.Models
         public async Task AddRange(IEnumerable<T> entities)
         {
             await _context.Set<T>().AddRangeAsync(entities);
-            await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression)
@@ -47,13 +46,13 @@ namespace DeviceManagement.Data.Repository.Models
 
         public async Task Remove(T entity)
         {
-            await Task.Run(() => _context.Set<T>().Remove(entity));
+            _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
         }
 
         public async Task RemoveRange(IEnumerable<T> entities)
         {
-            await Task.Run(() => _context.Set<T>().RemoveRange(entities));
+            _context.Set<T>().RemoveRange(entities);
             await _context.SaveChangesAsync();
         }
 

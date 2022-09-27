@@ -118,7 +118,8 @@ namespace DeviceManagement_WebApp.Controllers
                 return NotFound();
             }
 
-            var zone = _zoneRepository.GetById(id);
+            var zone = await _zoneRepository.GetById(id);
+
             if (zone == null)
             {
                 return NotFound();
